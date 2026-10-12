@@ -21,6 +21,14 @@ public class ProductoService {
         return repo.save(p);
     }
 
+    public Producto actualizar(Long id, Producto p) {
+        if (repo.existsById(id)) {
+            p.setId(id);
+            return repo.save(p);
+        }
+        return null;
+    }
+
     public Producto obtener(Long id) {
         return repo.findById(id).orElse(null);
     }
